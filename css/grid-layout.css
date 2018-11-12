@@ -12,12 +12,6 @@
     float: left;
 }
 
-.box {
-    background-color: lightgray;
-    border: 1px solid black;
-    height: 30px;
-}
-
 .one-half {
     width: 50%;
 }
