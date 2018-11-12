@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.column {
+    float: left;
+}
+
+.box {
+    background-color: lightgray;
+    border: 1px solid black;
+    height: 30px;
+}
+
+.one-half {
+    width: 50%;
+}
+
+.one-third {
+    width: 33.33%;
+}
+
+.one-fourth {
+    width: 25%;
+}
+
+.one-eighth {
+    width: 12.5%;
+}
+
+@media screen and (max-width:768px) {
+   .column {
+       width: 100%;
+   }
+}
