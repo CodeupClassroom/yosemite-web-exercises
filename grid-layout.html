@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Float Based Grid Layout System</title>
+    <link rel="stylesheet" href="css/grid-layout.css">
+    <style>
+        * {
+            font-family: "Trebuchet MS", sans-serif;
+        }
+
+        body {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/pipes.png");
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            border: 1px solid black;
+        }
+        .full {
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>Float-Based Grid Layout</h1>
+    <main class="container">
+        <div class="row">
+            <div class="full">
+                Fills entire width of container
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-half">First half</div>
+            <div class="column one-half">Second half</div>
+        </div>
+        <div class="row">
+            <div class="column one-third">First third</div>
+            <div class="column one-third">Second third</div>
+            <div class="column one-third">Third third</div>
+        </div>
+        <div class="row">
+            <div class="column one-quarter">First quarter</div>
+            <div class="column one-quarter">Second quarter</div>
+            <div class="column one-quarter">Third quarter</div>
+            <div class="column one-quarter">Fourth quarter</div>
+        </div>
+        <div class="row">
+            <div class="column one-sixth">First sixth</div>
+            <div class="column one-sixth">Second sixth</div>
+            <div class="column one-sixth">Third sixth</div>
+            <div class="column one-sixth">Fourth sixth</div>
+            <div class="column one-sixth">Fifth sixth</div>
+            <div class="column one-sixth">Sixth sixth</div>
+        </div>
+        <div class="row">
+            <div class="column one-eighth">First eighth</div>
+            <div class="column one-eighth">Second eighth</div>
+            <div class="column one-eighth">Third eighth</div>
+            <div class="column one-eighth">Fourth eighth</div>
+            <div class="column one-eighth">Fifth eighth</div>
+            <div class="column one-eighth">Sixth eighth</div>
+            <div class="column one-eighth">Seventh eighth</div>
+            <div class="column one-eighth">Eighth eighth</div>
+        </div>
+        <div class="row">
+            <div class="column one-tenth">First Tenth</div>
+            <div class="column one-tenth">Second Tenth</div>
+            <div class="column one-tenth">Third Tenth</div>
+            <div class="column one-tenth">Fourth Tenth</div>
+            <div class="column one-tenth">Fifth Tenth</div>
+            <div class="column one-tenth">Sixth Tenth</div>
+            <div class="column one-tenth">Seventh Tenth</div>
+            <div class="column one-tenth">Eighth Tenth</div>
+            <div class="column one-tenth">Ninth Tenth</div>
+            <div class="column one-tenth">Tenth Tenth</div>
+        </div>
+        <div class="row">
+            <div class="column one-twelfth">First Twelfth</div>
+            <div class="column one-twelfth">Second Twelfth</div>
+            <div class="column one-twelfth">Third Twelfth</div>
+            <div class="column one-twelfth">Fourth Twelfth</div>
+            <div class="column one-twelfth">Fifth Twelfth</div>
+            <div class="column one-twelfth">Sixth Twelfth</div>
+            <div class="column one-twelfth">Seventh Twelfth</div>
+            <div class="column one-twelfth">Eighth Twelfth</div>
+            <div class="column one-twelfth">Ninth Twelfth</div>
+            <div class="column one-twelfth">Tenth Twelfth</div>
+            <div class="column one-twelfth">Eleventh Twelfth</div>
+            <div class="column one-twelfth">Twelfth Twelfth</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="column one-half offset-one-half">One half, offset by one-half</div>
+        </div>
+
+    </main>
+</body>
+</html>
