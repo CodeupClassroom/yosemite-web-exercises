@@ -26,3 +26,29 @@ for (var i = 0;i<10; i++) {
     }
 
 }
+
+function numberTree() {
+    for (var i = 1; i<10;i++) {
+        var it = '';
+        for (var j=0;j<i;j++) {
+            it += i;
+        }
+        console.log(it);
+    }
+}
+
+numberTree()
+
+
+
+var countBackwardsByFives = function () {
+    for (var i = 100;i>=5;i-=5) {
+        console.log(i);
+    }
+}
+
+countBackwardsByFives();
+
+
+
+
