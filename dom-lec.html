@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 class="title bigger">My page</h1>
+
+<li class="item" id="myName">Fer</li>
+<li class="item">Ryan</li>
+<li class="item">Harper</li>
+<li class="item">Terrel</li>
+<li class="item">Sophie</li>
+
+<img id="logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="">
+<a id="help-link" href="/help">Get help</a>
+
+<h2 class="title">Fill this form</h2>
+
+<form name="login">
+    <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text">
+    </div>
+    <div>
+        <label for="pass">Password</label>
+        <input id="pass" name="password" type="password">
+    </div>
+    <div>
+        <input id="send" type="submit">
+    </div>
+</form>
+<script>
+    "use strict";
+
+    var btnSend = document.getElementById('send');
+    var userField = document.getElementById('username');
+    var passField = document.forms.login.password;
+    var subtitle = document.getElementsByClassName('title')[1];
+    var helpLink = document.getElementById('help-link');
+    var logo = document.getElementById('logo');
+
+    btnSend.addEventListener('click', function(event){
+        event.preventDefault();
+        subtitle.innerText = 'Email sent successfully';
+        subtitle.style.color = 'blue';
+        console.log(userField.value);
+        console.log('#'+passField.value+'$');
+        helpLink.href = 'https://google.com';
+        // logo.src = 'https://codeup.com/wp-content/uploads/2017/03/codeupicon-2.png';
+        logo.style.width = '50%';
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
