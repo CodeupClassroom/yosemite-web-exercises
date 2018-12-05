@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            background-color: #3B94D9;
+            width: 100%;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+<!-- div to hold map -->
+<div id="map-canvas"></div>
+<input type="text" id="address">
+<button id="locate">Locate</button>
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=KEY"></script>
+
+<!-- Script to show address on map -->
+<script type="text/javascript">
+    (function() {
+        "use strict";
+
+        // Set our map options
+        var mapOptions = {
+
+            // Set the zoom level
+            zoom: 18,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.4797082,
+                lng: -98.4658365
+            }
+        };
+
+        var codeup = { lat: 29.426791, lng: -98.489602 };
+
+        // Init geocoder object
+        var geocoder = new google.maps.Geocoder();
+        var btn = document.getElementById('locate');
+
+        btn.addEventListener('click', function(){
+            var myAddress = document.getElementById('address').value;
+            geocoder.geocode({ "address": myAddress }, function(results, status) {
+
+                // Check for a successful result
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    // Recenter the map over the address
+                    console.log(results);
+                    map.setCenter(results[0].geometry.location);
+
+                    var tempMarker = new google.maps.Marker({
+                        position: results[0].geometry.location,
+                        map: map
+                    });
+
+                    // Create a new infoWindow object with content
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<h1>Changing the world, one programmer at a time.</h1>"
+                    });
+
+// Open the window using our map and marker
+                    infowindow.open(map, tempMarker);
+
+                } else {
+
+                    // Show an error message with the status if our request fails
+                    alert("Geocoding was not successful - STATUS: " + status);
+                }
+            });
+        });
+
+        // var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+
+})();
+</script>
+</body>
