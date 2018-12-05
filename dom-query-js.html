@@ -27,33 +27,50 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="main-header-btn">Change header</button>
+<button id="subtitle-btn">Change subtitle color</button>
+<button id="change-items">Change items color</button>
+<button id="dbBtn">Change DB 1</button>
+
 <script>
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header');
-
+        var mainHeaderbtn = document.getElementById('main-header-btn');
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'JavaScript is Cool';
+        mainHeaderbtn.addEventListener('click', function(){
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        });
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
+        var subBtn = document.querySelector("#subtitle-btn");
 
         // TODO: Set the text color of subHeader to blue
 
-        subHeader.style.color = 'blue';
+        subBtn.addEventListener('click', function(){
+            subHeader.style.color = 'blue';
+        });
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
+        var itemsBtn = document.getElementById('change-items');
 
         // TODO: Set text color on every other list item to grey
-        for(var i=0 ; i < listItems.length ; i++){
-            i += 1;
-            if(i < listItems.length)
-            listItems[i].style.color = 'grey';
-        }
+        itemsBtn.addEventListener('click', function(){
+            for(var i=0 ; i < listItems.length ; i++){
+                i += 1;
+                if(i < listItems.length)
+                    listItems[i].style.color = 'grey';
+            }
+        });
+
         // TODO: Set text color of li with dbid = 1 to blue
-        document.querySelector('li[data-dbid="1"]').style.color = 'blue';
+        var dbBtn = document.querySelector('#dbBtn');
+        dbBtn.addEventListener('click', function(){
+            document.querySelector('li[data-dbid="1"]').style.color = 'blue';
+        });
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
