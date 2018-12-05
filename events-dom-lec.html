@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<p id="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur corporis cum dolores neque non odit reiciendis repellat similique, veritatis. A beatae cupiditate dignissimos, dolorem iure laborum veritatis! Aliquid, quaerat?</p>
+
+
+<form name="test" action="">
+    <span id="secrets"></span>
+    <label for="pass"></label>
+    <input type="password" id="pass" name="pass">
+    <select name="colors" id="colors">
+        <option value="0">Select one color</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+    </select>
+</form>
+
+<button id="remove-event">Remove events</button>
+
+<script>
+    "use strict";
+    var intro = document.getElementById('intro');
+    var removeBtn = document.querySelector('#remove-event');
+    var passInput = document.querySelector('#pass');
+    var secrets = document.querySelector('#secrets');
+    var colors = document.querySelector('#colors');
+
+    var removeEvents = function(){
+        intro.removeEventListener('click', adsEvents);
+        console.log('events removed');
+    };
+
+    var adsEvents = function(){
+        alert("Buy a membership today");
+    };
+
+    intro.addEventListener('click', adsEvents);
+
+    removeBtn.addEventListener('click', removeEvents);
+
+    pass.addEventListener('keyup', function(event){
+        secrets.innerText += event.key;
+    });
+
+    colors.addEventListener('change', function(){
+        intro.style.backgroundColor = this.value;
+    });
+
+
+</script>
+
+</body>
+</html>
