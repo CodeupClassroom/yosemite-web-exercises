@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2 id="title">My stuff</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dicta iste itaque maxime molestias nobis sequi! Cum earum hic ipsa itaque quas quo recusandae unde. Dicta eius error esse iure!
+</p>
+
+<li class="item">Mac</li>
+<li class="item">iPhone</li>
+<li class="item">iPad</li>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae dolores incidunt itaque libero magni maxime minima sit. Aliquid assumenda consequuntur deserunt dignissimos ea, enim molestiae officiis quaerat quidem ratione!
+</p>
+
+
+<div class="important">
+    <h3>NOTICE</h3>
+    <p>This is an important message!</p>
+</div>
+<div class="not-important">
+    <h2>Lorem Ipsum</h2>
+    <p>Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.</p>
+</div>
+<p class="important">This is also very important.</p>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    "use strict";
+    $(document).ready(function(){
+
+        $('#title').text('Fer');
+
+        $('.item').css('color', 'orange');
+
+        $('p').css('color', 'navy');
+
+        $('p, .important').css('background-color', '#FF0');
+
+    });
+</script>
+</body>
+</html>
