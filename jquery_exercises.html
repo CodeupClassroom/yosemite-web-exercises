@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 id="mainTitle">Main Site</h1>
+
+<p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi eos explicabo ipsa ipsam officiis quidem, saepe? Beatae exercitationem impedit laboriosam nesciunt quasi repellat tempore temporibus tenetur. Explicabo labore quae repellat.</p>
+
+<ul id="names">
+    <li class="firstName">Fer</li>
+    <li class="firstName">Ryan</li>
+    <li class="firstName">Sophie</li>
+</ul>
+
+<div id="codeup">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam atque commodi ea enim ex labore molestiae nisi nobis obcaecati omnis porro provident, qui, quia quibusdam rem sunt totam voluptatum.
+    <img src="https://fer-uig.glitch.me" alt="">
+</div>
+
+<h1>Footer</h1>
+
+
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+
+<script>
+    "use strict";
+    $(document).ready(function() {
+        // alert($('#main').text());
+        $('.firstName').css('border', '1px solid red');
+        $('li').css('font-size', '20px');
+        $('li, p, h1').css('background-color', 'cyan');
+        alert($('h1').text());
+    });
+</script>
+
+</body>
+</html>
