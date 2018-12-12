@@ -30,6 +30,37 @@
     <dd class="invisible">Answer1</dd>
   </dl>
   <a id="toggler" href="#">Toggle All</a>
+
+
+  <h3 id="national-parks-heading">National Parks</h3>
+  <ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+  </ul>
+
+  <h3>State Parks of Texas</h3>
+  <ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+  </ul>
+
+  <h3>Parks of Anton</h3>
+  <ul>
+    <li>Anton is cool park</li>
+    <li>Anton is a programmer park</li>
+    <li>Anton knows things park</li>
+    <li>Anton is Russian park</li>
+  </ul>
+
+
+  <button id="highlighter" href="#">Highlight things</button>
+
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script>
     $('#toggler').click(function() {
@@ -37,6 +68,19 @@
     })
     $('dt').click(function () {
       $(this).next().toggleClass('invisible')
+    })
+  </script>
+  <script>
+    $('#highlighter').click(function () {
+      $('ul').each(function () {
+        $(this).children().last().css('background-color', 'yellow')
+      })
+    })
+    $('h3').click(function () {
+      $(this).next().css('font-weight', 'bold')
+    })
+    $('ul').click(function(){
+      $(this).children().first().css('color', 'blue')
     })
   </script>
 </body>
