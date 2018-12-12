@@ -7,9 +7,18 @@
     .invisible {
       display: none;
     }
+
+    #close-news {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <div>
+    <span id="close-news">x</span>
+    <h1>Would you like to sign up for our newsletter?</h1>
+  </div>
+  <h2 id="subscribe">Register <a href="#">here</a></h2>
   <h1>FAQ about national parks</h1>
   <dl>
     <dt>
@@ -63,25 +72,40 @@
 
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script>
-    $('#toggler').click(function() {
-      $('dd').toggleClass('invisible')
-    })
-    $('dt').click(function () {
-      $(this).next().toggleClass('invisible')
-    })
-  </script>
-  <script>
-    $('#highlighter').click(function () {
-      $('ul').each(function () {
-        $(this).children().last().css('background-color', 'yellow')
+
+    $(document).ready(function(){
+
+      $('ul, #subscribe').hide();
+
+      $('#toggler').click(function() {
+        $('dd').toggleClass('invisible')
       })
-    })
-    $('h3').click(function () {
-      $(this).next().css('font-weight', 'bold')
-    })
-    $('ul').click(function(){
-      $(this).children().first().css('color', 'blue')
-    })
+      $('dt').click(function () {
+        $(this).next().toggleClass('invisible')
+      })
+
+      $('#highlighter').click(function () {
+        $('ul').each(function () {
+          $(this).children().last().css('background-color', 'yellow')
+        })
+      })
+      $('h3').click(function () {
+        $(this).next().css('font-weight', 'bold').slideToggle();
+      })
+      $('ul').click(function(){
+        $(this).children().first().css('color', 'blue')
+      })
+
+      $('#close-news').click(function(){
+          $(this).parent().fadeOut();
+      });
+
+    });
+
+    setTimeout(function(){
+        $('#subscribe').fadeIn(2000);
+    }, 8000);
+
   </script>
 </body>
 </html>
