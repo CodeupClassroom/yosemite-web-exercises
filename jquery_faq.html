@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery FAQ</title>
+  <style>
+    .invisible {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>FAQ about national parks</h1>
+  <dl>
+    <dt>
+      Question1
+    </dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question2</dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question3</dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question4</dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question5</dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question6</dt>
+    <dd class="invisible">Answer1</dd>
+    <dt>Question7</dt>
+    <dd class="invisible">Answer1</dd>
+  </dl>
+  <a id="toggler" href="#">Toggle All</a>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script>
+    $('#toggler').click(function() {
+      $('dd').toggleClass('invisible')
+    })
+    $('dt').click(function () {
+      $(this).next().toggleClass('invisible')
+    })
+  </script>
+</body>
+</html>
