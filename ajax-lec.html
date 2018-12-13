@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="title"></h1>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script>
+    "use strict";
+    $(document).ready(function(){
+        $.get("https://frest.glitch.me/restaurants/3")
+            .done(function (restaurant) {
+            $('#title').text(restaurant.name);
+        })
+            .fail(function(data, status){
+                console.log(data);
+        })
+            .always(function () {
+            //    a good example is to get rid of a loading page
+            });
+
+        $.ajax('js/restaurants.json')
+            .done(function(restaurants){
+                $('#title').text(restaurants[4].name);
+            })
+
+    });
+</script>
+</body>
+</html>
