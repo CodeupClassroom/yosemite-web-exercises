@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="js/jquery-2.2.4.min.js"></script>
+
+<script>
+
+    $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San Antonio,us&appid=KEY&units=imperial')
+        .done(function(weather){
+            console.log(weather);
+        })
+
+</script>
+
+</body>
+</html>
