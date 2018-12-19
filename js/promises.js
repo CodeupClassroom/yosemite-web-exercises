@@ -1,32 +1,69 @@
+'use strict';
 
-const wait = delay => new Promise((resolve, reject) => setTimeout(resolve, delay))
+// es5
+// function wait(delay) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(resolve, delay)
+//     })
+// }
 
-/////////////////////////////////////////////////////////////////////
+// es6 one liner
+// const wait = delay => new Promise((resolve, reject) => setTimeout(resolve, delay))
 
-const API_TOKEN = '3fdee4dc6bfb4b2b486a498e59b55693b18d162f'
-const FETCH_OPTIONS = {headers: {'Authorization': `token ${API_TOKEN}`}}
+// es6
+const wait = delay => new Promise((resolve, reject) => {
+    setTimeout(resolve, delay)
+})
 
-// return the response after checking for errors and parsing as JSON
-const fetchJson = url => fetch(url, FETCH_OPTIONS)
-    .then(response => response.status == 200 ? Promise.resolve(response) : Promise.reject(response))
-    .then(response => response.json())
+// wait(1000).then(() => console.log('You\'ll see this after 1 second'));
+// wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
 
-// specify an endpoint and make a request to the github api
-const fetchGithub = endpoint => fetchJson(`https://api.github.com${endpoint}`)
-// hit the user events endpoint for a specific username
-const fetchUserEvents = username => fetchGithub(`/users/${username}/events`)
-/**
- * Return the github push events for a given username
- * 
- * Note that not all the events returned by the github api are pushes, we also
- * have ForkEvents, among others. We can look at the .type property to
- * determine this.
- */
-const getPushEvents = username => fetchUserEvents(username)
-    .then(events => events.filter(evt => evt.type == 'PushEvent'))
-// get the date of the last commit for a given user
-const getLastCommit = username => getPushEvents(username)
-    .then(pushEvents => pushEvents[0])
-    .then(mostRecentPush => mostRecentPush.created_at)
+const API_KEY = '3fdee4dc6bfb4b2b486a498e59b55693b18d162f';
+const FETCH_OPTIONS = {
+    headers: {'Authorization': `token ${API_KEY}`}
+}
 
-getLastCommit('zgulde').then(date => console.log(date))
+function checkResponseErrors(response) {
+    if (response.status !== 200) {
+        return Promise.reject(response)
+    }
+    return Promise.resolve(response)
+}
+
+function filterNonPushEvents(events) {
+    const onlyThePushEvents = []
+    events.forEach(function(event) {
+        if (event.type === 'PushEvent') {
+            onlyThePushEvents.push(event)
+        }
+    })
+    return onlyThePushEvents
+}
+
+function getMostRecentCommitDate(username) {
+    return fetch(`https://api.github.com/users/${username}/events`, FETCH_OPTIONS)
+        .then(checkResponseErrors)
+        .then(response => response.json())
+        // type is PushEvent
+        // .then(events => events.filter(event => event.type === 'PushEvent'))
+        .then(filterNonPushEvents)
+        .then(pushEvents => pushEvents[0])
+        .then(mostRecentPushEvent => mostRecentPushEvent.created_at)
+}
+
+// - add an event listener to submit button, when the button is clicked
+//     - grab the value from the input box
+//     - call my function and use the results
+//     - write to the dom
+
+const submitButton = document.querySelector('#submit')
+submitButton.addEventListener('click', function(e) {
+    const input = document.getElementById('github-username')
+    const username = input.value
+    getMostRecentCommitDate(username)
+        .then(commitDate => {
+            const output = document.querySelector('#output')
+            output.innerHTML = `The last commit for ${username} was ${commitDate}`
+        })
+})
+
