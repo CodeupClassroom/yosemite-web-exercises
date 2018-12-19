@@ -18,7 +18,7 @@ const fetchOptions = {
     headers: {'Authorization': `token ${API_TOKEN}`}
 }
 
-function checkResponseForErrors(response) {
+const checkResponseForErrors = response => {
     console.group('checkResponseForErrors')
     console.log(response)
     console.groupEnd()
@@ -28,7 +28,7 @@ function checkResponseForErrors(response) {
     return Promise.resolve(response);
 }
 
-function parseResponseAsJson(response) {
+const parseResponseAsJson = response => {
     console.group('parseResponseAsJson')
     console.log(response)
     console.groupEnd()
@@ -36,12 +36,18 @@ function parseResponseAsJson(response) {
     return jsonResponse;
 }
 
-function getSecondElement(data) {
-    console.group('getSecondElement')
-    console.log(data)
-    console.groupEnd()
-    return data[1];
-}
+// es5
+// function getSecondElement(data) {
+//     return data[1];
+// }
+// es6 arrow function
+// const getSecondElement = (data) => {
+//     return data[1];
+// }
+// es6 arrow function with implicit return
+// const getSecondElement = (data) => data[1];
+// es6 arrow function with implicit return and destructuring syntax
+const getSecondElement = ([first, second]) => second;
 
 function getId(githubApiObject) {
     console.group('getId')
@@ -56,12 +62,27 @@ function logData(data) {
     console.groupEnd();
 }
 
-fetch('https://api.github.com/users/zgulde/events', fetchOptions)
-    .then(checkResponseForErrors)
-    .then(parseResponseAsJson)
+function fetchJson(url) {
+    return fetch(url, fetchOptions)
+        .then(checkResponseForErrors)
+        .then(parseResponseAsJson)
+}
+
+fetchJson('https://api.github.com/users/zgulde/events')
     .then(getSecondElement)
     .then(getId)
     .then(logData);
+
+// const fetchPromise = fetch('https://api.github.com/users/zgulde/events', fetchOptions)
+// const errorFreeResponse = fetchPromise.then(checkResponseForErrors)
+// const jsonResponse = errorFreeResponse.then(parseResponseAsJson);
+// const secondElementPromise = jsonResponse.then(getSecondElement);
+// secondElementPromise.then(logData)
+
+
+
+    // .then(getId)
+    // .then(logData);
 
 console.log('When will you see this?')
 
